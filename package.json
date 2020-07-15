@@ -1,0 +1,23 @@
+{
+  "name": "hello-prisma",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --no-notify --transpileOnly --respawn src/index.ts",
+    "start": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.2.2",
+    "@types/node": "^14.0.23",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.51",
+    "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "@nexus/schema": "^0.14.0",
+    "@prisma/client": "^2.2.2",
+    "apollo-server": "^2.15.1",
+    "graphql": "^15.3.0"
+  }
+}
