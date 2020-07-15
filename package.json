@@ -1,10 +1,10 @@
 {
-  "name": "hello-prisma",
-  "version": "1.0.0",
+  "name": "apollo-nexus-schema",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --no-notify --transpileOnly --respawn src/index.ts",
+    "dev": "ts-node-dev --no-notify --respawn src/index.ts",
     "start": "ts-node src/index.ts"
   },
   "devDependencies": {

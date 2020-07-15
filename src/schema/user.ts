@@ -6,7 +6,7 @@ export const User = objectType({
     t.id('id');
     t.string('email');
     t.string('name', { nullable: true });
-    t.field('posts', { type: 'Post' });
-    t.field('profile', { type: 'Profile' });
+    t.list.field('posts', { type: 'Post' , nullable: true });
+    t.field('profile', { type: 'Profile' , nullable: true });
   }
 });

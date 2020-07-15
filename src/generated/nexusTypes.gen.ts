@@ -48,8 +48,8 @@ export interface NexusGenRootTypes {
     email: string; // String!
     id: string; // ID!
     name?: string | null; // String
-    posts: NexusGenRootTypes['Post']; // Post!
-    profile: NexusGenRootTypes['Profile']; // Profile!
+    posts?: NexusGenRootTypes['Post'][] | null; // [Post!]
+    profile?: NexusGenRootTypes['Profile'] | null; // Profile
   }
   String: string;
   Int: number;
@@ -97,8 +97,8 @@ export interface NexusGenFieldTypes {
     email: string; // String!
     id: string; // ID!
     name: string | null; // String
-    posts: NexusGenRootTypes['Post']; // Post!
-    profile: NexusGenRootTypes['Profile']; // Profile!
+    posts: NexusGenRootTypes['Post'][] | null; // [Post!]
+    profile: NexusGenRootTypes['Profile'] | null; // Profile
   }
 }
 
