@@ -1,48 +1,46 @@
-import { objectType } from '@nexus/schema';
-import { PrismaClient } from "@prisma/client"
+import { queryType } from '@nexus/schema';
 
-const prisma = new PrismaClient()
-
-export const Query = objectType({
-  name: 'Query',
+export const Query = queryType({
   definition(t) {
-    t.field('posts', {
-      type: 'Post',
-      list: true,
-      async resolve(_root, _args, _context) {
-        const posts = await prisma.post.findMany({
-          include: {
-            author: true
-          }
-        });
-        console.dir(posts, { depth: null });
-        return posts;
-      }
-    })
-    t.list.field('users', {
-      type: 'User',
-      async resolve(_root, _args, _context) {
-        const users = await prisma.user.findMany({
-          include: { 
-            posts: true,
-            profile: true,
-          }
-        });
-        console.dir(users, { depth: null });
-        return users;
-      }
-    })
-    t.list.field('profiles', {
-      type: 'Profile',
-      async resolve(_root, _args, _context) {
-        const profiles = await prisma.profile.findMany({
-          include: {
-            user: true
-          }
-        });
-        console.dir(profiles, { depth: null });
-        return profiles;
-      }
-    })
+    t.crud.user()
+    t.crud.users()
+    t.crud.post()
+    t.crud.posts()
+    t.crud.profile()
+    t.crud.profiles()
   }
 })
+
+// export const Query = queryType({
+//   definition(t) {
+//     t.list.field('posts', {
+//       type: 'Post',
+//       async resolve(_root, _args, ctx) {
+//         return ctx.prisma.post.findMany({
+//           include: { author: true }
+//         });
+//       }
+//     })
+//     t.list.field('users', {
+//       type: 'User',
+//       async resolve(_root, _args, ctx) {
+//         return ctx.prisma.user.findMany({
+//           include: { 
+//             posts: true,
+//             profile: true,
+//           }
+//         });
+//       }
+//     })
+//     t.list.field('profiles', {
+//       type: 'Profile',
+//       async resolve(_root, _args, ctx) {
+//         return ctx.prisma.profile.findMany({
+//           include: {
+//             user: true
+//           }
+//         });
+//       }
+//     })
+//   }
+// })
