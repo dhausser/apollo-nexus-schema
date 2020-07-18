@@ -7,24 +7,21 @@
     "dev": "ts-node-dev --no-notify --transpile-only --respawn src/index.ts",
     "start": "ts-node src/index.ts",
     "generate:prisma": "prisma generate",
-    "generate:nexus": "cross-env NODE_ENV=development ts-node --transpile-only src/schema",
+    "generate:nexus": "NODE_ENV=development ts-node --transpile-only src/schema",
     "generate": "yarn run generate:prisma && yarn run generate:nexus",
     "postinstall": "yarn run generate",
     "build": "yarn run generate && tsc"
   },
   "devDependencies": {
-    "@prisma/cli": "^2.2.2",
     "@types/node": "^14.0.23",
     "prettier": "^2.0.5",
     "ts-node": "^8.10.2",
-    "ts-node-dev": "^1.0.0-pre.51",
-    "typescript": "^3.9.6"
+    "ts-node-dev": "^1.0.0-pre.52",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "@nexus/schema": "^0.14.0",
-    "@prisma/client": "^2.2.2",
-    "apollo-server": "^2.15.1",
-    "cross-env": "^7.0.2",
+    "apollo-server": "^2.16.0",
     "graphql": "^15.3.0",
     "nexus-plugin-prisma": "^0.16.1"
   }
