@@ -442,17 +442,16 @@ export interface NexusGenFieldTypes {
   }
   Post: {
     // field return type
-    author: NexusGenRootTypes['User'] // User!
+    author: NexusGenRootTypes['User'] | null // User
     content: string | null // String
-    createdAt: any // DateTime!
-    id: number // Int!
+    id: string // ID!
     published: boolean // Boolean!
     title: string // String!
   }
   Profile: {
     // field return type
     bio: string | null // String
-    id: number // Int!
+    id: string // ID!
     user: NexusGenRootTypes['User'] // User!
   }
   Query: {
@@ -467,9 +466,9 @@ export interface NexusGenFieldTypes {
   User: {
     // field return type
     email: string // String!
-    id: number // Int!
+    id: string // ID!
     name: string | null // String
-    posts: NexusGenRootTypes['Post'][] // [Post!]!
+    posts: NexusGenRootTypes['Post'][] | null // [Post!]
     profile: NexusGenRootTypes['Profile'] | null // Profile
   }
 }
@@ -582,15 +581,6 @@ export interface NexusGenArgTypes {
       // args
       after?: NexusGenInputs['UserWhereUniqueInput'] | null // UserWhereUniqueInput
       before?: NexusGenInputs['UserWhereUniqueInput'] | null // UserWhereUniqueInput
-      first?: number | null // Int
-      last?: number | null // Int
-    }
-  }
-  User: {
-    posts: {
-      // args
-      after?: NexusGenInputs['PostWhereUniqueInput'] | null // PostWhereUniqueInput
-      before?: NexusGenInputs['PostWhereUniqueInput'] | null // PostWhereUniqueInput
       first?: number | null // Int
       last?: number | null // Int
     }

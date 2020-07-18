@@ -89,10 +89,9 @@ input NullableStringFilter {
 }
 
 type Post {
-  author: User!
+  author: User
   content: String
-  createdAt: DateTime!
-  id: Int!
+  id: ID!
   published: Boolean!
   title: String!
 }
@@ -216,7 +215,7 @@ input PostWhereUniqueInput {
 
 type Profile {
   bio: String
-  id: Int!
+  id: ID!
   user: User!
 }
 
@@ -319,14 +318,9 @@ input StringFilter {
 
 type User {
   email: String!
-  id: Int!
+  id: ID!
   name: String
-  posts(
-    after: PostWhereUniqueInput
-    before: PostWhereUniqueInput
-    first: Int
-    last: Int
-  ): [Post!]!
+  posts: [Post!]
   profile: Profile
 }
 
